@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Some description">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bookshelf</title>
+    <link href="https://fonts.googleapis.com/css?family=Lora&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Chivo:700i&amp;display=swap" rel="stylesheet">
+    <style>:root {
+  --font-size-base: 20px;
+  --font-colour-body: teal;
+  --max-width: 800px;
+  --marker-colour: pink;
+}
+
+body {
+  font-family: 'Lora', serif;
+  font-size: var(--font-size-base);
+  color: var(--font-colour-body);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+h1,
+h2 {
+  font-family: 'Chivo', serif;
+}
+
+h2 {
+  margin: 2rem 0 0.5em;
+}
+
+p {
+  line-height: 2rem;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 900px) {
+  li {
+    margin-left: 25px;
+  }
+}
+li[data-rating="5"] {
+  position: relative;
+}
+li[data-rating="5"]::before {
+  position: absolute;
+  color: var(--font-colour-body);
+  content: '➺';
+  color: var(--marker-colour);
+  left: -25px;
+}
+
+li + li {
+  margin-top: 0.5rem;
+}
+
+.by,
+.author {
+  color: grey;
+}
+
+.highlight {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  /* https://speckyboy.com/underline-text-effects-css */
+  background-image: linear-gradient(var(--marker-colour), var(--marker-colour));
+  background-repeat: no-repeat;
+  background-size: 100% 0.1em;
+  background-position: 0 88%;
+  transition: background-size 0.2s ease-in;
+}
+.highlight:hover {
+  background-size: 100% 88%;
+}
+
+.footnotes {
+  margin: 3rem 0;
+  position: relative;
+}
+.footnotes::before {
+  content: '☙';
+  display: block;
+  color: var(--marker-colour);
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin: 5rem 0;
+}
+
+.footnotes__link,
+.footnotes__link:visited {
+  color: grey;
+  text-decoration: none;
+}
+.footnotes__link:hover {
+  color: var(--marker-colour);
+}
+
+.footer {
+  font-family: 'Chivo', serif;
+  margin: 5rem 0 3rem;
+  color: var(--marker-colour);
+}
+
+.footer__link {
+  color: var(--font-colour-body);
+}
+
+/** Utils */
+
+.pull-right {
+  float: right;
+}
+
+.marker-highlight {
+  color: var(--marker-colour);
+}
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>My bookshelf</h1>
+    </header>
+    <main>
+      <p>This is a collection of what I’ve read<sup><a class="footnotes__link" id="r1" href="#fn1">[1]</a></sup>
+        over the past years, automatically generated from my
+        <a class="highlight" href="https://goodreads.com/gnclmorais">Goodreads profile</a>. Entries indicated by
+        <span class="marker-highlight">➺</span>
+        are books I strongly advise.
+      </p>
+      <p>Last updated on
+        <time class="timestamp marker-highlight" datetime="2020/2/27">2020/2/27</time>.
+      </p>
+      <h2>2018</h2>
+      <ul>
+        <li class="book" data-rating="0"><a class="highlight" href="https://www.goodreads.com/book/show/36663461-skin-in-the-game">Skin in the Game: Hidden Asymmetries in Daily Life</a>
+          <span class="by">by</span>
+          <span class="author">Nassim Nicholas Taleb</span>
+        </li>
+        <li class="book" data-rating="5"><a class="highlight" href="https://www.goodreads.com/book/show/36752952-the-courage-to-be-disliked">The Courage To Be Disliked: How to free yourself, change your life and achieve real happiness</a>
+          <span class="by">by</span>
+          <span class="author">Ichiro Kishimi</span>
+        </li>
+        <li class="book" data-rating="0"><a class="highlight" href="https://www.goodreads.com/book/show/18624273-the-war-of-art">The War of Art</a>
+          <span class="by">by</span>
+          <span class="author">Steven Pressfield</span>
+        </li>
+        <li class="book" data-rating="0" data-isbn="0988262592"><a class="highlight" href="https://www.goodreads.com/book/show/17255186-the-phoenix-project">The Phoenix Project: A Novel About IT, DevOps, and Helping Your Business Win</a>
+          <span class="by">by</span>
+          <span class="author">Gene Kim</span>
+        </li>
+      </ul>
+      <h2>2017</h2>
+      <ul>
+        <li class="book" data-rating="0" data-isbn="0316769177"><a class="highlight" href="https://www.goodreads.com/book/show/5107.The_Catcher_in_the_Rye">The Catcher in the Rye</a>
+          <span class="by">by</span>
+          <span class="author">J.D. Salinger</span>
+        </li>
+      </ul>
+      <h2>2016</h2>
+      <ul>
+        <li class="book" data-rating="5" data-isbn="0753820161"><a class="highlight" href="https://www.goodreads.com/book/show/1068674.Meditations">Meditations</a>
+          <span class="by">by</span>
+          <span class="author">Marcus Aurelius</span>
+        </li>
+        <li class="book" data-rating="5"><a class="highlight" href="https://www.goodreads.com/book/show/23251016-zero-to-one">Zero to One: Notes on Start Ups, or How to Build the Future</a>
+          <span class="by">by</span>
+          <span class="author">Blake  Masters</span>
+        </li>
+        <li class="book" data-rating="5"><a class="highlight" href="https://www.goodreads.com/book/show/18875853-the-inner-game-of-tennis">The Inner Game of Tennis: The Classic Guide to the Mental Side of Peak Performance</a>
+          <span class="by">by</span>
+          <span class="author">W. Timothy Gallwey</span>
+        </li>
+        <li class="book" data-rating="5"><a class="highlight" href="https://www.goodreads.com/book/show/18887826-sketching-user-experiences">Sketching User Experiences: Getting the Design Right and the Right Design</a>
+          <span class="by">by</span>
+          <span class="author">Bill Buxton</span>
+        </li>
+        <li class="book" data-rating="5"><a class="highlight" href="https://www.goodreads.com/book/show/8517074-toyota-production-system">Toyota Production System: Beyond Large-Scale Production</a>
+          <span class="by">by</span>
+          <span class="author">Taiichi Ohno</span>
+        </li>
+        <li class="book" data-rating="5"><a class="highlight" href="https://www.goodreads.com/book/show/18989034-bankei-zen">Bankei Zen: Translations from the Record of Bankei</a>
+          <span class="by">by</span>
+          <span class="author">Yoshito Hakeda</span>
+        </li>
+        <li class="book" data-rating="3" data-isbn="0857863479"><a class="highlight" href="https://www.goodreads.com/book/show/24695111-trying-not-to-try">Trying Not to Try: The Ancient Art of Effortlessness and the Surprising Power of Spontaneity</a>
+          <span class="by">by</span>
+          <span class="author">Edward Slingerland</span>
+        </li>
+        <li class="book" data-rating="5" data-isbn="1861972784"><a class="highlight" href="https://www.goodreads.com/book/show/984017.The_48_Laws_Of_Power">The 48 Laws Of Power</a>
+          <span class="by">by</span>
+          <span class="author">Robert Greene</span>
+        </li>
+        <li class="book" data-rating="5"><a class="highlight" href="https://www.goodreads.com/book/show/28815.Influence">Influence: The Psychology of Persuasion</a>
+          <span class="by">by</span>
+          <span class="author">Robert B. Cialdini</span>
+        </li>
+        <li class="book" data-rating="5" data-isbn="0674627512"><a class="highlight" href="https://www.goodreads.com/book/show/320553.Notes_on_the_Synthesis_of_Form">Notes on the Synthesis of Form</a>
+          <span class="by">by</span>
+          <span class="author">Christopher W. Alexander</span>
+        </li>
+        <li class="book" data-rating="0" data-isbn="0684832720"><a class="highlight" href="https://www.goodreads.com/book/show/82256.The_Sovereign_Individual">The Sovereign Individual: Mastering the Transition to the Information Age</a>
+          <span class="by">by</span>
+          <span class="author">James Dale Davidson</span>
+        </li>
+        <li class="book" data-rating="4" data-isbn="0805091742"><a class="highlight" href="https://www.goodreads.com/book/show/6667514-the-checklist-manifesto">The Checklist Manifesto: How to Get Things Right</a>
+          <span class="by">by</span>
+          <span class="author">Atul Gawande</span>
+        </li>
+      </ul>
+      <h2>2013</h2>
+      <ul>
+        <li class="book" data-rating="4" data-isbn="4770019572"><a class="highlight" href="https://www.goodreads.com/book/show/102030.Musashi">Musashi</a>
+          <span class="by">by</span>
+          <span class="author">Eiji Yoshikawa</span>
+        </li>
+      </ul>
+      <section class="footnotes">
+        <p id="fn1"><a class="footnotes__link" href="#r1">[1]</a>
+          Read or listened; audiobooks are great companions for long runs
+          and I find them in some ways superior to paper books.
+        </p>
+      </section>
+    </main>
+    <footer class="footer"><a class="footer__link" href="https://blog.gnclmorais.com">Blog</a>,
+      <a class="footer__link" href="https://github.com/gnclmorais">GitHub</a>,
+      <a class="footer__link" href="https://twitter.com/gnclmorais">Twitter</a><a class="footer__link pull-right" href="https://github.com/gnclmorais/bookshelf">Check out the code</a>
+    </footer>
+  </body>
+</html>
